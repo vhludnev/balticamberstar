@@ -4,27 +4,13 @@ const gulp = require("gulp");
 const webpack = require("webpack-stream");
 const browsersync = require("browser-sync");
 const htmlmin = require('gulp-htmlmin');
-const less = require('gulp-less');
 const webp = require('gulp-webp');
-const gcmq = require('gulp-group-css-media-queries');
+const autoprefixer = require('gulp-autoprefixer');
+const rename = require('gulp-rename');
 const cleanCSS = require('gulp-clean-css');
 const del = require('del');
 const critical = require('critical');
-//const sourcemaps = require('gulp-sourcemaps');
-//const sass = require('gulp-sass');
-
-// Setting the browser to support:
-// const AUTOPREFIXER_BROWSERS = [
-//   'ie >= 10',
-//   'ie_mob >= 10',
-//   'ff >= 30',
-//   'chrome >= 34',
-//   'safari >= 7',
-//   'opera >= 23',
-//   'ios >= 7',
-//   'android >= 4.4',
-//   'bb >= 10'
-// ];
+// const sourcemaps = require('gulp-sourcemaps');
 
 const dist = "./dist/";
 
@@ -33,12 +19,25 @@ const crList = {
 	'.btn': ['display', 'font-size', 'height', 'line-height', 'padding', 'text-align', 'border']
 }
 
+// Setting the browser to support:
+const AUTOPREFIXER_BROWSERS = [
+  'ie >= 10',
+  'ie_mob >= 10',
+  'ff >= 30',
+  'chrome >= 34',
+  'safari >= 7',
+  'opera >= 23',
+  'ios >= 7',
+  'android >= 4.4',
+  'bb >= 10'
+];
+
 function criticalCSS(done) {
 	crPages.forEach(async page => {
 		await critical.generate({
 			base: dist,
 			src: `${page}.html`,
-			css: ['./assets/css/main.css'],
+			css: ['./assets/css/main-min.css'],
 			target: {
 				css: `./assets/css/${page}-critical.css`,
 				//uncritical: `css/${page}-async.css`
@@ -166,52 +165,46 @@ gulp.task("build-prod-js", () => {
 gulp.task("default", gulp.parallel("watch", "build"));
 
 
-// Gulp task to minify CSS files
-// gulp.task('styles', () => {
-//   return gulp.src('./src/assets/css/main.css')
-//     // Auto-prefix css styles for cross browser compatibility
-//     .pipe(autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
-//     // Minify the file
-//     .pipe(csso())
-//     // Output
-//     .pipe(gulp.dest('./dist/assets/css'))
-// });
-
 //Gulp task to clean output directory
-gulp.task('clean', () => del(['dist']));
-
-gulp.task('cleaning', () => del(['dist/assets/css/**', 'dist/assets/less']));
-gulp.task('cleanCss', () => del(['dist/assets/css']));
-gulp.task('cleanLess', () => del(['dist/assets/less']));
+gulp.task('cleaning', () => del(['dist/assets/css/**']));
+//gulp.task('clean', () => del(['dist']));
+//gulp.task('cleanCss', () => del(['dist/assets/css']));
 
 //Gulp task to copy only assets folder
 gulp.task('copy-assets-folder', () => {
 	return gulp.src('./src/assets/**/*.*')
-		.pipe(gulp.dest(dist + "/assets"))
+		.pipe(gulp.dest(dist + "assets"))
 })
 
 //Gulp task to convert image files to webp format
 gulp.task('webp', () => {
 	return gulp.src('./src/assets/img/*')
 		.pipe(webp())
-		.pipe(gulp.dest('./dist/assets/img'));
+		.pipe(gulp.dest(dist + "assets/img"));
 })
 
 //Gulp task to minify CSS files
 gulp.task('minify-css', () => {
-	return gulp.src('./dist/assets/css/main.css')
-		.pipe(cleanCSS({
-			compatibility: 'ie8'
-		}))
-		.pipe(gulp.dest(dist + "/assets/css"));
-});
-
-gulp.task('css', () => {
-	return gulp.src('./src/assets/css/main.less')
-		.pipe(less())
-		.pipe(gcmq())
-		.pipe(gulp.dest(dist + "/assets/css"));
-});
+	return gulp.src('./src/assets/css/main.css')
+	  .pipe(cleanCSS({
+		  debug: true,
+		  compatibility: 'ie8',
+		  level: {
+			  1: {
+				  specialComments: 0,
+			  },
+		  },
+	  }))
+	  .pipe(autoprefixer({
+		  browsers: AUTOPREFIXER_BROWSERS
+	  }))
+	  .pipe(rename({
+		  basename: 'main',
+		  suffix: '-min',
+	  }))
+	  .pipe(gulp.dest(dist + "assets/css/"))
+	
+	});
 
 //Gulp task to minify HTML files
 gulp.task('pages', () => {
@@ -226,13 +219,10 @@ gulp.task('pages', () => {
 
 // Gulp task to minify all files
 gulp.task('build-final', gulp.series(
-	//'clean',
 	//'copy-assets-folder',
 	'cleaning',
-	//'cleanLess',
 	'pages',
 	'build-prod-js',
-	'css',
 	'critical',
 	'minify-css'
 	//'webp'

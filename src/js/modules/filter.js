@@ -8,7 +8,7 @@ const filter = () => {
             btnFriends = menu.querySelector('.friends'),
             btnShows = menu.querySelector('.shows'),
             btnOthers = menu.querySelector('.others'),           
-    //          btnGranddad = menu.querySelector('.granddad'),
+
             wrapper = document.querySelector('.portfolio-wrapper'),
             markAll = wrapper.querySelectorAll('.all'),          
             markAthome = wrapper.querySelectorAll('.athome'),
@@ -60,15 +60,11 @@ const filter = () => {
         });
 
         btnOthers.addEventListener('click', () => {
-            typeFilter(markOthers);                         /* if no pictures in the category leave like that: typeFilter(); to see "No pictures" on the screen*/
+            typeFilter(markOthers);                         // if no pictures in the category leave like that: typeFilter(); to see "No pictures" on the screen
         }); 
 
 
-        // btnGranddad.addEventListener('click', () => {
-        //     typeFilter();
-        // });
-
-        menu.addEventListener('click', (e) => { /* makes active only one menu button which was clicked on */
+        menu.addEventListener('click', (e) => {             // makes active only one menu button which was clicked on
         
             let target = e.target;
 

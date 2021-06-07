@@ -1,4 +1,4 @@
-// Result: Names and Comments' inputs allowed only in Russian
+// Result: Names and Comments inputs allowed only in Russian
 
 const checkNameInputs = (selector) => {
     const txtInputs = document.querySelectorAll(selector),
@@ -6,7 +6,7 @@ const checkNameInputs = (selector) => {
 
     txtInputs.forEach(input => {
         input.addEventListener('keypress', function(e) {
-            if (e.key.match(/[^а-яё a-z]/ig)) {    /* [^A-Za-z\d] for latin letters; [^а-яё 0-9] for cirilic letters and numbers */
+            if (e.key.match(/[^а-яё a-z]/ig)) {    // [^A-Za-z\d] for latin letters; [^а-яё 0-9] for cirilic letters and numbers
                 e.preventDefault();
             }
         });

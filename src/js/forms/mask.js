@@ -36,7 +36,7 @@ const mask = (selector) => {
                 this.value = '';
             }   
             
-        } else if (event.type === 'click') { /* will not be able to put number befor [+7] in phone number field */
+        } else if (event.type === 'click') { // will not be able to put number befor [+7] in phone number field
             setCursorPosition(this.value.length+2, this);
 
         } else {
@@ -52,7 +52,7 @@ const mask = (selector) => {
         input.addEventListener('blur', createMask);
         input.addEventListener('click', createMask);
     });
-};
+}
 
 
 export default mask;

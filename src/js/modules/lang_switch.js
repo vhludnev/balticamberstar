@@ -44,19 +44,11 @@ const lang_switch = () => {
     }
 
 
-
-//    $(document).ready(function() {
-
 // Loading on DOMContentLoaded
     var lang = localStorage.getItem('lang') || navigator.language.slice(0, 2);
-        // Or setting the default language to English
-        // var lang = 'en'; /* or even better: */
-        // var lang = localStorage.getItem('lang') || 'en';
-
         $('.lang').each(function(index, element) {
         $(this).text(arrLang[lang][$(this).attr('key')]);
         });
-//    });
     
     // Get/Set the selected language
     $('.translate').click(function() {
@@ -72,9 +64,6 @@ const lang_switch = () => {
 }
 
 // Language change in other fields of the form & clicked btns color change
-
-/* if (localStorage.getItem('lang') === 'en') { */
-/* if (navigator.language.slice(0, 2) === 'en' && localStorage.getItem('lang') === null) { */
 
 if ((navigator.language.slice(0, 2) === 'ru' && localStorage.getItem('lang') === null) || localStorage.getItem('lang') === 'ru')  {     /* [navigator.language] detects the browser's language */
     $('#ru').css('color', '#c78030');

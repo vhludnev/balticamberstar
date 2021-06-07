@@ -1,13 +1,5 @@
 const slickSlider = () => {
-    
-//    window.onload = function() {      
-//    $(document).ready(function(){
-//    try{
-//        $('.carousel__inner').on('init', function(){
-//        let el = document.querySelector('.slick-active');
-//        el.classList.remove('slick-active');
-//        });
-   
+     
         $('.carousel__inner').slick({
         initialSlide: 3,
         dots: true,
@@ -38,45 +30,31 @@ const slickSlider = () => {
         responsive: [{
             breakpoint: 992,
             settings: {
-                //variableWidth: false,
-                //centerMode: false,
                 initialSlide: 2,
                 slidesToShow: 5,
-                //autoplay: false,
-                //slidesToScroll: 2,
-                //infinite: false,
-                /* dots: true, */
-                /* arrows: false */
             }
             },
             {
             breakpoint: 600,
             settings: {
-                //variableWidth: false,
                 centerMode: false,
                 initialSlide: 0,
                 slidesToShow: 4,
                 autoplay: false,
-                //slidesToScroll: 1,
                 infinite: false,
             }
             },
             {
             breakpoint: 480,
             settings: {
-                //variableWidth: false,
                 centerMode: false,
                 initialSlide: 0,
                 slidesToShow: 3,
                 autoplay: true,
-                //slidesToScroll: 1,
-                //infinite: false,
             }
             }
         ]
-        });  
-//    })
-//catch(e){}
+    });  
 
 }
 

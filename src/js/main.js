@@ -9,7 +9,6 @@ import checkMailInputs from './forms/checkMailInputs';
 import forms from './forms/forms';
 import menuTabs from './modules/menuTabs';
 import slickSlider from './modules/slickSlider';
-//import metrika from './modules/metrika';
 
 window.onload = () => {
     setTimeout(() => {
@@ -33,6 +32,4 @@ window.addEventListener('DOMContentLoaded', () => {
     checkMailInputs('[name="email"]');
     forms();
     menuTabs();
-    //metrika();
-
 });

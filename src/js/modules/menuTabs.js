@@ -12,7 +12,7 @@ $('#navmenu ul li a').click(function() {
   let ele = localStorage.getItem('page');
   $('#navmenu ul li:eq(' + ele + ')').find('a').addClass('active');
 
-  localStorage.removeItem('page');  /* if not set, menu tab will be hightlighted after returning back to the website */
+  localStorage.removeItem('page');  // if not set, menu tab will be hightlighted after returning back to the website
 }
 
 

@@ -6,7 +6,7 @@ const checkMailInputs = (selector) => {
 
     mailInputs.forEach(input => {
         input.addEventListener('keypress', function(e) {
-            if (e.key.match(/[^a-z 0-9 @ \.]/ig)) {      /* or (/[^a-z 0-9 @ \.]/ig)) */           /* if (e.key.match(/[^a-z 0-9 @ \.]/ig)) { */
+            if (e.key.match(/[^a-z 0-9 @ \.]/ig)) {      // or (/[^a-z 0-9 @ \.]/ig))     if (e.key.match(/[^a-z 0-9 @ \.]/ig)) 
                 e.preventDefault();
             }
         });

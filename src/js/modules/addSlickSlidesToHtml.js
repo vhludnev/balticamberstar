@@ -16,15 +16,13 @@ const addSlickSlidesToHtml = (wrapper) => {
                         let style = document.createElement('div');
                         style.classList.add('animated', 'fadeIn');
                         style.innerHTML = `
-             <img class="myImg" src="assets/img/gallery/Slide${src}-1.webp" alt=${alt} loading="lazy">
+             <img loading="lazy" class="myImg" src="assets/img/gallery/Slide${src}-1.webp" alt=${alt} >
         `;
                         try {
                                 document.querySelector(wrapper).appendChild(style);
                         } catch (e) {}
                 });
-        }
+        };
 };
 
 export default addSlickSlidesToHtml;
-
-/* <img class="myImg" src=${src} alt=${alt}> */
