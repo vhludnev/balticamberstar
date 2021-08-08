@@ -2,7 +2,14 @@ const forms = () => {
 
     // Initialize Firebase
     var firebaseConfig = {
-//        <<<<<<<<<<<<<<<<< SECRET DATA >>>>>>>>>>>>>>>
+        apiKey: "AIzaSyAltrBzEQgc6t5TcRUkXH3tv7t4tW_AJbw",
+        authDomain: "balticamberstar.firebaseapp.com",
+        databaseURL: "https://balticamberstar-default-rtdb.firebaseio.com",
+        projectId: "balticamberstar",
+        storageBucket: "balticamberstar.appspot.com",
+        messagingSenderId: "998564368180",
+        appId: "1:998564368180:web:aea97daef465d86a40df61",
+        measurementId: "G-CPLWEWPC0W"
     };  
         
         firebase.initializeApp(firebaseConfig);
@@ -50,11 +57,13 @@ const forms = () => {
 
         const form = document.getElementById('contactForm')
         const inputs = document.querySelectorAll('input')
+        const checkbox = document.querySelector('.policy input')
 
         const clearInputs = () => {
             inputs.forEach(item => {
                 item.value = '';
             });
+            checkbox.checked = false;
         };
 
         let statusMessage = document.createElement('div');
@@ -64,14 +73,13 @@ const forms = () => {
 
         form.classList.add('animated', 'fadeOutUp');
     
-        setTimeout(() => {
-            form.style.display = 'none';
-        }, 1000);
-   
+        // setTimeout(() => {
+        //     form.style.display = 'none';
+        // }, 1000);
         let statusImg = document.createElement('img'); // constructing the spinner that will appear after submitting the form
-        statusImg.setAttribute('src', message.spinner);
-        statusImg.classList.add('animated', 'fadeInUp');
         statusMessage.appendChild(statusImg);
+        statusImg.setAttribute('src', message.spinner);
+        statusImg.classList.add('animated', 'fadeIn');
     
         let textMessage = document.createElement('div'); // constructing the block for the text that will appear after submitting the form
         if (localStorage.getItem('lang') === 'ru') {
@@ -80,7 +88,6 @@ const forms = () => {
             textMessage.textContent = "Sending...";
         }
         statusMessage.appendChild(textMessage);
-
         //let newMessagesRef = messagesRef.push()
         messagesRef.push({
             name: name,
@@ -111,7 +118,7 @@ const forms = () => {
             clearInputs();
             setTimeout(() => {
                 statusMessage.remove();
-                form.style.display = 'block';
+                //form.style.display = 'block';
                 form.classList.remove('fadeOutUp');
                 form.classList.add('fadeInUp');
             }, 4000);                   

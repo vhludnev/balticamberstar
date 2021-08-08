@@ -1,12 +1,15 @@
 
 .vscode
 
-assets/video/*
-assets/img/*
-assets/icons/*
-assets/logo/*
-assets/script.js
-assets/script.js.map
+gulpfile copy.js
+.gitignore
+gulpfile.js 
+dist/
+
+src/assets/video/*
+src/assets/img/*
+src/assets/icons/*
+src/assets/logo/*
 
 # Logs
 logs

@@ -20,7 +20,9 @@ const lang_switch = () => {
             'ask': 'Ask the breeder!',
             'address': 'Daugavpils, Latvia',
             'send': 'Submit',
-            'more': 'More pictures'
+            'more': 'More pictures',
+            'agree': 'I agree to the',
+            'policy': 'Terms & Conditions and Privacy Policy'
         },
         'ru': {
             'home': 'Главная',
@@ -39,7 +41,9 @@ const lang_switch = () => {
             'ask': 'Задайте его владельцу!',
             'address': 'Даугавпилс, Латвия',
             'send': 'Отправить',
-            'more': 'Ещё фотографии'
+            'more': 'Ещё фотографии',
+            'agree': 'Я согласен(а) с',
+            'policy': 'политикой конфиденциальности'
         }
     }
 
@@ -73,9 +77,13 @@ if ((navigator.language.slice(0, 2) === 'ru' && localStorage.getItem('lang') ===
     $('#email').attr('placeholder', 'Ваш E-mail');
     $('#message').attr('placeholder', 'Задайте ваш вопрос здесь');
 	$('html').attr('lang', 'ru');
+    // $('#english-policy').css('display', 'none');
+    // $('#russian-policy').css('display', 'block');
 }  else {
     $('#en').css('color', '#c78030');
     $('#ru').css('color', '#767373');
+    // $('#english-policy').css('display', 'block');
+    // $('#russian-policy').css('display', 'none');
 }
  
 $('#ru').click(() => {
@@ -86,6 +94,8 @@ $('#ru').click(() => {
     $('#email').attr('placeholder', 'Ваш E-mail');
     $('#message').attr('placeholder', 'Задайте ваш вопрос здесь');
 	$('html').attr('lang', 'ru');
+    // $('#english-policy').css('display', 'none');
+    // $('#russian-policy').css('display', 'block');
 })
 
 $('#en').click(()  => {
@@ -96,6 +106,8 @@ $('#en').click(()  => {
     $('#email').attr('placeholder', 'Your email');
     $('#message').attr('placeholder', 'Ask your question here');
 	$('html').attr('lang', 'en');
+    // $('#english-policy').css('display', 'block');
+    // $('#russian-policy').css('display', 'none');
 })
 
 

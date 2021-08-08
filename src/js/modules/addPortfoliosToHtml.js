@@ -2,7 +2,7 @@ import {
         getResource
 } from '../services/requests';
 
-// Result: When clicking a certain btn will trigger blocks to appear and the btn itself disappears
+
 
 const addPortfoliosToHtml = (wrapper) => {
         getResource('assets/db.json')

@@ -10158,7 +10158,9 @@ header ul li:before {
   background-color: transparent;
   position: relative;
 }
+
 .consultation {
+  /* position: relative; */
   /* background-color: #eed4d2; */
   padding: 100px 0;
 }
@@ -10169,6 +10171,12 @@ header ul li:before {
   .consultation .p-heading {
     text-align: center;
   } */
+.consultation .parent {
+  position: relative;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+}
 .consultation .input-wrapper {
   display: flex;
   justify-content: space-between;
@@ -10192,7 +10200,33 @@ header ul li:before {
 .consultation .button-order {
   margin-top: 1rem;
 }
-.status {
+.consultation .policy {
+  color: #fff;
+  opacity: .7;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(40px, auto));
+  column-gap: 4px;
+  justify-content: center;
+  font-size: 12px;
+  line-height: 23px;
+}
+.consultation .policy input[type="checkbox"] {
+  margin-left: 10px;
+}
+.consultation .policy a {
+  color: #c78030;
+}
+.consultation .policy a:hover {
+  color: lightskyblue;
+}
+/* .consultation .policy input[type='checkbox'] {
+  outline: 1px solid #c78030;
+} */
+/* .consultation .button-order:hover {
+  color: #c78030;
+} */
+.consultation .status {
+  position: absolute;
   text-align: center;
   font-size: 18px;
   font-family: 'Roboto Slab', 'Trebuchet MS', sans-serif;

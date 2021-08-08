@@ -1,11 +1,11 @@
-## Beautiful dogs website
+## Beautiful dogs breeder website
 
-- javascript
-- dual language
-- local storage
-- slick slider
-- critical css
-- firebase
-- gulp
+- Javascript
+- Dual language
+- Local storage
+- Slick slider
+- Critical css
+- Firebase
+- Gulp
 
 [Check website](https://balticamberstar.firebaseapp.com/)
