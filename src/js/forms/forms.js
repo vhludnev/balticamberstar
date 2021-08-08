@@ -2,14 +2,7 @@ const forms = () => {
 
     // Initialize Firebase
     var firebaseConfig = {
-        apiKey: "AIzaSyAltrBzEQgc6t5TcRUkXH3tv7t4tW_AJbw",
-        authDomain: "balticamberstar.firebaseapp.com",
-        databaseURL: "https://balticamberstar-default-rtdb.firebaseio.com",
-        projectId: "balticamberstar",
-        storageBucket: "balticamberstar.appspot.com",
-        messagingSenderId: "998564368180",
-        appId: "1:998564368180:web:aea97daef465d86a40df61",
-        measurementId: "G-CPLWEWPC0W"
+        DATA
     };  
         
         firebase.initializeApp(firebaseConfig);
